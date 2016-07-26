@@ -15,11 +15,11 @@ public class ReclamoDao implements ReclamoInterface{
 
 	
 
-	public Reclamo getById(String id) throws SQLException {
+	public Reclamo getById(final String id) throws SQLException {
 		ManejadorDB4O db = ManejadorDB4O.getInstancia();
 		List<Reclamo> result = db.conditionQuery(new Predicate<Reclamo>() {
 			public boolean match(Reclamo reclamo) {
-				return reclamo.getId() == id;
+				return reclamo.getId().equals(id);
 			}
 		});
 		return result.get(0);

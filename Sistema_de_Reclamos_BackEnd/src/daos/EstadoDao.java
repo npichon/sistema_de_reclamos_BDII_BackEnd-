@@ -13,7 +13,7 @@ import interfaces.EstadoInterface;
 public class EstadoDao implements EstadoInterface{
 
 
-	public Estado getById(String id) throws SQLException {
+	public Estado getById(final String id) throws SQLException {
 		ManejadorDB4O db = ManejadorDB4O.getInstancia();
 		List<Estado> result = db.conditionQuery(new Predicate<Estado>() {
 			public boolean match(Estado estado) {

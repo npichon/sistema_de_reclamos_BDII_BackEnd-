@@ -27,7 +27,7 @@ public class CiudadanoDao implements CiudadanoInterface{
 		ManejadorDB4O db = ManejadorDB4O.getInstancia();
 		List<Ciudadano> result = db.conditionQuery(new Predicate<Ciudadano>() {
 			public boolean match(Ciudadano ciudadano) {
-				return ciudadano.getId() == id;
+				return ciudadano.getId().equals(id);
 			}
 		});
 		return result.get(0);

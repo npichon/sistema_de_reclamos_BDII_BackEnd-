@@ -23,11 +23,11 @@ public class DireccionDao implements DireccionInterface {
 	}
 
 
-	public Direccion getById(String id) throws SQLException {
+	public Direccion getById(final String id) throws SQLException {
 		ManejadorDB4O db = ManejadorDB4O.getInstancia();
 		List<Direccion> result = db.conditionQuery(new Predicate<Direccion>() {
 			public boolean match(Direccion direccion) {
-				return direccion.getId() == id;
+				return direccion.getId().equals(id);
 			}
 		});
 		return result.get(0);
@@ -59,9 +59,5 @@ public class DireccionDao implements DireccionInterface {
 		db.eliminar(direccion);	
 	}
 
-
-	public List<Direccion> getByCondicion(int dni) throws SQLException {
-		return null;
-	}
 
 }

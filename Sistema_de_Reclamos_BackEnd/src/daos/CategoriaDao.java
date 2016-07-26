@@ -15,11 +15,11 @@ import interfaces.CategoriaInterface;
 public class CategoriaDao implements CategoriaInterface {
 
 
-	public Categoria getById(String id) throws SQLException {
+	public Categoria getById(final String id) throws SQLException {
 		ManejadorDB4O db = ManejadorDB4O.getInstancia();
 		List<Categoria> result = db.conditionQuery(new Predicate<Categoria>() {
 			public boolean match(Categoria categoria) {
-				return categoria.getId() == id;
+				return categoria.getId().equals(id);
 			}
 		});
 		return result.get(0);
@@ -49,12 +49,8 @@ public class CategoriaDao implements CategoriaInterface {
 		
 	}
 
-	public List<Categoria> getByCondicion(int condition) throws SQLException {
-		return null;
-	}
 
 	public Categoria getByNombre(String nombreCategoria) throws SQLException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

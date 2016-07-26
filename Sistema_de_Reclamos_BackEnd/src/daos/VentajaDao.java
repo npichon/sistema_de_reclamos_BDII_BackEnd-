@@ -21,11 +21,11 @@ public class VentajaDao implements VentajaInterface {
 		return datos;
 	}
 
-	public Ventaja getById(String id) throws SQLException {
+	public Ventaja getById(final String id) throws SQLException {
 		ManejadorDB4O db = ManejadorDB4O.getInstancia();
 		List<Ventaja> result = db.conditionQuery(new Predicate<Ventaja>() {
 			public boolean match(Ventaja ventaja) {
-				return ventaja.getId() == id;
+				return ventaja.getId().equals(id);
 			}
 		});
 		return result.get(0);

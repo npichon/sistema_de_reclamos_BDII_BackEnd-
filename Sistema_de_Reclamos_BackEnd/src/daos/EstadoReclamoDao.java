@@ -20,11 +20,11 @@ public class EstadoReclamoDao implements EstadoReclamoInterface {
 		return null;
 	}
 
-	public EstadoReclamo getById(String id) throws SQLException {
+	public EstadoReclamo getById(final String id) throws SQLException {
 		ManejadorDB4O db = ManejadorDB4O.getInstancia();
 		List<EstadoReclamo> result = db.conditionQuery(new Predicate<EstadoReclamo>() {
 			public boolean match(EstadoReclamo estadoReclamo) {
-				return estadoReclamo.getId() == id;
+				return estadoReclamo.getId().equals(id);
 			}
 		});
 		return result.get(0);
@@ -53,8 +53,4 @@ public class EstadoReclamoDao implements EstadoReclamoInterface {
 		db.eliminar(estadoReclamo);
 	}
 
-	public List<EstadoReclamo> getByCondicion(int idReclamo)
-			throws SQLException {
-		return null;
-	}
 }
