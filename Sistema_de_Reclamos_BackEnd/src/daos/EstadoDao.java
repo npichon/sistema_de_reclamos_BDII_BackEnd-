@@ -17,7 +17,7 @@ public class EstadoDao implements EstadoInterface{
 		ManejadorDB4O db = ManejadorDB4O.getInstancia();
 		List<Estado> result = db.conditionQuery(new Predicate<Estado>() {
 			public boolean match(Estado estado) {
-				return estado.getId() == id;
+				return estado.getId().equals(id);
 			}
 		});
 		return result.get(0);
@@ -50,7 +50,7 @@ public class EstadoDao implements EstadoInterface{
 		ManejadorDB4O db = ManejadorDB4O.getInstancia();
 		List<Estado> result = db.conditionQuery(new Predicate<Estado>() {
 			public boolean match(Estado estado) {
-				return estado.getNombre() == condition;
+				return estado.getNombre().equals(condition);
 			}
 		});
 		return result.get(0);
